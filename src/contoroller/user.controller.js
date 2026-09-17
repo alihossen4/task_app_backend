@@ -19,6 +19,19 @@ const signup = asyncHandler( async(req, res)=> {
     )
      return res.status(200).json(ApiSuccess.created( "User created", user)); 
 });
+const signin = asyncHandler(async()=>{
+    const {email,password} =req.body;
+    const user = await User.findOne({email});
+    if(!user){
+        return Error("User not found");
+    }
+    const isMatch = await user.comparePassword(password);
+    if(!isMatch){
+        return Error("Invalid credentitals");
+    }
+    return res.status(200).json(('User signed in', {}))
+})
 export {
     signup,
+    signin,
 }
