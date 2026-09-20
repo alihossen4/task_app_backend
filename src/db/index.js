@@ -2,7 +2,7 @@
 import mongoose from "mongoose"
 import { MONGO_URI } from "../constant.js"
 
-const dbConnect = async() =>{
+const db = async() =>{
     try {
         await mongoose.connect(MONGO_URI);
         console.log("Database connected");
@@ -10,4 +10,4 @@ const dbConnect = async() =>{
         console.log("error: ",error);
     }
 }
-export default dbConnect;
+export default db;
