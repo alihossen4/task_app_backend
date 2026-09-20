@@ -8,7 +8,7 @@ const ServerStart =async()=>{
         app.listen(PORT,()=>{
             console.log(`App listening in ${PORT} port`)
         });
-        app.get(PORT,(req,res)=>{
+        app.get('/',(req,res)=>{
             res.send("hello")
         });
     } catch (error) {
