@@ -5,4 +5,4 @@ const authRoute = express.Router();
 authRoute.post("/signup",signup);
 authRoute.get("/signin",signin);
 
-export {authRoute}
+export default authRoute;
